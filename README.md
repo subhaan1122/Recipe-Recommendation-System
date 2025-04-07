@@ -94,3 +94,7 @@ Feel free to reach out if you want to collaborate or have suggestions:
   - Name: Subhaan Khokhar
   - Email: mskproductions2002@gmail.com
   - LinkedIn: https://www.linkedin.com/in/muhammad-subhan-khokhar/
+
+🏷️ Tags: 
+
+Python Machine Learning TF-IDF Cosine Similarity NLP Recommendation System Data Visualization Food Recipes
