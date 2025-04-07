@@ -1,65 +1,107 @@
-This project leverages a dataset of food recipes to recommend recipes to users based on the ingredients they have on hand. It includes data preprocessing, text cleaning, and machine learning techniques, specifically TF-IDF vectorization and cosine similarity, to suggest recipes that match the user-provided ingredients.
+🥘 Recipe Recommendation System:
 
--> Overview:
+A smart food recommendation system that suggests recipes based on the ingredients you have! Powered by TF-IDF Vectorization, Cosine Similarity, and a clean, rich dataset, this system helps users find recipes matching their taste, cuisine, dietary preferences, and available ingredients.
 
-The goal of this project is to recommend food recipes based on the ingredients the user provides. The system processes a dataset containing food recipes, cleans and preprocesses the data, and uses machine learning techniques like TF-IDF vectorization and cosine similarity to suggest the best-matching recipes. Additionally, users can filter recommendations by cuisine, diet, and course preferences.
+📂 Project Overview:
 
--> Dataset:
+This project takes a CSV file of food recipes, cleans and processes the data, then uses machine learning techniques to recommend the top 5 recipes similar to the user's provided ingredients. Users can also filter results by cuisine, diet, or course. Additionally, data visualizations are provided to better understand recipe distributions.
 
-The dataset used in this project contains various food recipes with the following columns:
+🚀 Features:
 
-1-name: The name of the recipe.
+🔍 Ingredient-based Recipe Recommendation
+🧠 TF-IDF + Cosine Similarity Matching
+🍽️ Filter by Cuisine, Diet, and Course
+📊 Visual Analysis using Seaborn and Matplotlib
+🧹 Text Preprocessing & Cleaning
+✅ Missing Values Handling and Duplicate Removal
 
-2-ingredients_name: A list of ingredients for the recipe.
+📁 Dataset:
 
-3-instructions: Step-by-step instructions for preparing the recipe.
+File: Food_Recipe.csv
 
-4-cuisine: The cuisine type (e.g., Italian, Mexican).
+- Columns used:
+1- name
+2- ingredients_name
+3- instructions
+4- cuisine
+5-  course
+6- diet
+7- cook_time (in mins)
 
-5-course: The type of meal (e.g., breakfast, lunch).
+🧪 How it Works:
 
-6-diet: Dietary preferences (e.g., vegetarian, gluten-free).
+- Preprocessing:
 
-7-cook_time (in mins): The estimated cook time in minutes.
+1- Remove rows with missing essential values.
+2- Fill missing optional columns with 'Unknown'.
+3- Convert text to lowercase and remove special characters.
+4- Remove duplicate entries.
 
--> Data Preprocessing:
-
-Selection of Essential Columns: We keep only the relevant columns: name, ingredients_name, instructions, cuisine, course, diet, and cook_time (in mins).
-
-- Handling Missing Data:
+- Vectorization:
   
-Rows with missing values in essential columns (name, ingredients_name, and instructions) are dropped.
-Missing values in optional columns are filled with the string 'Unknown'.
+TF-IDF is applied on the cleaned ingredient list to convert them into numeric vectors.
 
-- Text Cleaning:
+- Recommendation:
 
-All text columns (e.g., name, ingredients_name, instructions) are converted to lowercase for consistency.
-Special characters are removed from the ingredients_name column.
-Extra spaces are stripped and redundant spaces are removed from ingredient lists.
-Duplicate Removal: Exact duplicate rows are removed to ensure the dataset is unique.
+1- The user enters available ingredients.
+2- Cosine similarity compares user ingredients with recipes.
+3- Top 5 recipes are recommended and filtered by user preference.
 
--> TF-IDF Vectorization:
+🖼️ Visualizations:
 
-To transform the ingredients into a format suitable for machine learning, we use the TF-IDF (Term Frequency-Inverse Document Frequency) technique. This technique converts the list of ingredients into numerical vectors, making it easier to calculate the similarity between the user's input and the recipes.
-The vectorizer is fitted and transformed using the ingredients_name column, which is cleaned and processed to ensure proper consistency.
+1- Top 10 Cuisines
+2- Top 15 Common Ingredients
+3- Course Distribution (Pie Chart)
+4-  Dietary Preferences (Pie Chart)
 
--> Recipe Recommendation:
+📌 Requirements:
 
-The system uses cosine similarity to match the user’s input ingredients with the recipes in the dataset. It works as follows:
+Make sure you have the following libraries installed:
+          "pip install pandas numpy matplotlib seaborn scikit-learn"
 
-1-User Input: The user provides a list of ingredients.
+▶️ How to Run:
 
-2-Ingredient Cleaning: The input ingredients are cleaned in the same manner as the dataset.
+Download the dataset and update the CSV path in the code:  
+            "df = pd.read_csv("path/to/Food_Recipe.csv")"
+Run the Python file:
+              "python recipe_recommender.py"
+Enter the ingredients and filter preferences when prompted:
+              "Enter preferred cuisine (or press Enter to skip):
+               Enter preferred diet (or press Enter to skip):
+               Enter preferred course (or press Enter to skip):"
 
-3-Cosine Similarity Calculation: The input ingredients are transformed into a TF-IDF vector and compared with the vectors of all recipes using cosine similarity.
+🔎 Sample Output:
 
-4-Top Recipes: The top 5 recipes with the highest similarity scores are selected.
+🍕 Recipe Name: Margherita Pizza  
+🌍 Cuisine: Italian  
+🍽️ Course: Main Course  
+🥗 Diet: Vegetarian  
+⏳ Cook Time: 30 mins  
+🛒 Ingredients: tomato, cheese, garlic, basil
 
-5-Filtering Recipes by Preferences
+📜 Cooking Instructions:
 
--Users can further filter the recommended recipes based on their preferences:
+   🔹 Step 1: Preheat oven to 200 degrees.
+   🔹 Step 2: Spread tomato sauce over dough.
+   🔹 Step 3: Add cheese and basil.
+   🔹 Step 4: Bake until golden and bubbly.
+   
 
-1-Cuisine: Filter by preferred cuisine type (e.g., Italian, Chinese).
+ 📬 Contact:
+ 
+Feel free to reach out if you want to collaborate or have suggestions:
+
+  - Name: Subhaan Khokhar
+  - Email: mskproductions2002@gmail.com
+  - LinkedIn: https://www.linkedin.com/in/muhammad-subhan-khokhar/
+
+              
+
+
+
+
+
+
 
 2-Diet: Filter by dietary preferences (e.g., vegetarian, gluten-free).
 
